@@ -1,73 +1,97 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Boilerplate NestJS com Prisma e Docker
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é um boilerplate básico para a criação de aplicações backend utilizando **NestJS**, **Prisma ORM**, **PostgreSQL** e **Docker**. Ele serve como ponto de partida para novos projetos, facilitando o desenvolvimento e a configuração inicial.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tecnologias Utilizadas
 
-## Description
+- **NestJS**: Framework para construir aplicações Node.js escaláveis.
+- **Prisma**: ORM moderno para trabalhar com bancos de dados.
+- **PostgreSQL**: Banco de dados relacional.
+- **Docker**: Containerização para facilitar a execução e distribuição da aplicação.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Estrutura do Projeto
 
-## Installation
+``` markdown
+├── src
+│   ├── app.controller.ts       # Controller principal gerado pelo NestJS
+│   ├── app.module.ts           # Módulo principal da aplicação
+│   ├── app.service.ts          # Service principal gerado pelo NestJS
+│   ├── main.ts                 # Ponto de entrada da aplicação
+│   ├── app.controller.spec.ts  # Teste unitário para o AppController
+│   ├── app.service.spec.ts     # Teste unitário para o AppService
+│   └── ...                     # Outros módulos, controllers e services
+├── prisma
+│   └── schema.prisma           # Esquema do banco de dados Prisma
+├── Dockerfile                  # Arquivo de configuração do Docker
+├── docker-compose.yml          # Configuração dos serviços Docker
+├── package.json                # Dependências e scripts da aplicação
+├── nest-cli.json               # Configurações específicas do NestJS CLI
+├── tsconfig.build.json         # Configuração TypeScript para build
+├── tsconfig.json               # Configuração TypeScript principal
+├── .eslintrc.js                # Configuração do ESLint
+├── .prettierrc                 # Configuração do Prettier
+├── .gitignore                  # Arquivos e diretórios a serem ignorados pelo Git
+├── test
+│   ├── app.e2e-spec.ts         # Teste end-to-end para a aplicação
+│   ├── jest-e2e.json           # Configuração Jest para testes end-to-end
+└── README.md                   # Documentação do projeto
 
-```bash
-$ npm install
 ```
 
-## Running the app
+
+## Instalação
+
+1. Clone este repositório:
+
+   ```bash
+   git clone git@github.com:andreluialves/nestjs-prisma-boilerplate.git
+   cd nestjs-prisma-boilerplate
+
+2. Instale as dependências:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
+3. Configure o banco de dados no arquivo prisma/schema.prisma de acordo com suas necessidades.
+
+4. Gere o cliente Prisma:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npx prisma generate
 ```
 
-## Support
+## Executando com Docker
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+1. Certifique-se de ter o Docker e o Docker Compose instalados.
 
-## Stay in touch
+2. Execute o seguinte comando para iniciar os serviços:
+``` bash
+docker-compose up --build
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3. A aplicação estará disponível em http://localhost:3000.
 
-## License
+## Scripts
 
-Nest is [MIT licensed](LICENSE).
+`start`: Inicia a aplicação em modo de desenvolvimento.
+
+`build`: Compila o código TypeScript.
+
+`prisma`
+: Executa migrações do Prisma.
+
+`test`: Inicia os testes unitários
+
+`test:e2e`: Inicia os testes end-to-end
+
+`test:cov`: Inicia os testes de cobertura
+
+
+## Contribuições
+
+Sinta-se à vontade para contribuir com melhorias, correções ou novas funcionalidades! Crie um fork deste repositório e envie suas mudanças por meio de pull requests.
+
+## Licença
+
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
